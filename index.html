@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuração DVR - Merus Tracker</title>
+    <style>
+        body { background-color: #f0ebf8; font-family: 'Roboto', sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .form-container { max-width: 640px; width: 100%; }
+        .header-card { background-color: #673ab7; border-radius: 8px 8px 0 0; padding: 30px 20px; text-align: center; color: white; border: 1px solid #dadce0; border-bottom: none; }
+        .logo-img { width: 120px; height: auto; border-radius: 50px; background: #333; padding: 10px; margin-bottom: 20px; border: 2px solid rgba(255,255,255,0.2); }
+        h1 { font-size: 24px; font-weight: 500; margin: 0; color: white; }
+        .desc { background: white; margin: 0; padding: 20px 24px; color: #202124; font-size: 14px; border: 1px solid #dadce0; border-top: none; border-bottom: 10px solid #f0ebf8; }
+        .section { background: white; border: 1px solid #dadce0; border-radius: 8px; padding: 24px; margin-bottom: 12px; border-left: 6px solid #1a73e8; }
+        .question { margin-bottom: 25px; }
+        label { display: block; font-size: 15px; margin-bottom: 12px; color: #202124; font-weight: 500; }
+        input[type="text"], input[type="email"], input[type="number"], select { width: 100%; border: none; border-bottom: 1px solid #dadce0; padding: 8px 0; outline: none; background: transparent; }
+        input:focus, select:focus { border-bottom: 2px solid #673ab7; }
+        .info-icon { background: #673ab7; color: white; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-style: italic; cursor: help; margin-left: 8px; position: relative; }
+        .info-icon:hover::after { content: attr(data-tooltip); position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%); background: #333; color: #fff; padding: 8px 12px; border-radius: 4px; font-size: 12px; white-space: normal; width: 200px; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+        .radio-group label, .checkbox-group label { display: flex; align-items: center; cursor: pointer; font-weight: 400; }
+        input[type="radio"], input[type="checkbox"] { margin-right: 12px; width: 18px; height: 18px; accent-color: #673ab7; }
+        .priority-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 15px; }
+        .priority-table th, .priority-table td { padding: 12px; border-bottom: 1px solid #eee; text-align: center; }
+        .priority-table td:first-child { text-align: left; }
+        button { background-color: #673ab7; color: white; border: none; padding: 12px 30px; border-radius: 4px; cursor: pointer; font-weight: 500; width: 100%; font-size: 16px; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="header-card">
+        <img src="https://i.pinimg.com/736x/63/47/ce/6347ce3d2af30869563b274f6606358b.jpg" alt="Logo Merus" class="logo-img">
+        <h1>Preenchimento de Configuração DVR</h1>
+    </div>
+    
+    <p class="desc">Preencha todos os parâmetros técnicos para a configuração do equipamento.</p>
+
+    <form id="dvrForm">
+        <div class="section">
+            <h2>👤 Dados do Cliente</h2>
+            <div class="question">
+                <label>Nome do Cliente <span class="info-icon" data-tooltip="Identificação da empresa.">i</span></label>
+                <input type="text" name="cliente" placeholder="Sua resposta" required>
+            </div>
+            <div class="question">
+                <label>E-mail do solicitante <span class="info-icon" data-tooltip="E-mail para acompanhamento.">i</span></label>
+                <input type="email" name="email" placeholder="Sua resposta" required>
+            </div>
+            <div class="question">
+                <label>E-mail para recebimento dos alarmes <span class="info-icon" data-tooltip="Caso opte por receber via e-mail, digite-o aqui.">i</span></label>
+                <input type="email" name="email_recebimento" placeholder="exemplo@email.com">
+            </div>
+        </div>
+
+        <div class="section" style="border-left-color: #fb0; ">
+            <h2>🚚 Detalhes da Frota</h2>
+            <div class="question">
+                <label>Tipo de veículo </label>
+                <select name="tipo_veiculo" required>
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="Caminhão">Caminhão</option>
+                    <option value="Ônibus">Ônibus</option>
+                    <option value="Carro de passeio">Carro de passeio</option>
+                    <option value="Micro ônibus">Micro ônibus</option>
+                    <option value="Barca">Barca</option>
+                    <option value="Van">Van</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>Quantos veículos você contratou para o cadastro? </label>
+                <input type="number" name="qtd_veiculos" placeholder="Ex: 5" required>
+            </div>
+            <div class="question">
+                <label>Qual o modelo do seu veículo? </label>
+                <input type="text" name="modelo_veiculo" placeholder="Ex: Mercedes-Benz Atego" required>
+            </div>
+            <div class="question">
+                <label>Os veículos terão uma descrição? <span class="info-icon" data-tooltip="Ex: número da placa, número de ordem ou número cadastrado nos ônibus.">i</span></label>
+                <input type="text" name="descricao_veiculo" placeholder="Sua resposta">
+            </div>
+            <div class="question">
+                <label>Link do Google Drive <span class="info-icon" data-tooltip="Caso queira enviar imagens ou documentos.">i</span></label>
+                <input type="text" name="link_drive" placeholder="Cole o link aqui">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ Configurações Básicas</h2>
+            <div class="question">
+                <label>Existe um nome padrão? Se sim, qual? * <span class="info-icon" data-tooltip="Defina o ID do dispositivo.">i</span></label>
+                <input type="text" name="nome_dvr" placeholder="Sua resposta" required>
+            </div>
+            <div class="question">
+                <label>Qual idioma? * <span class="info-icon" data-tooltip="Idioma operacional.">i</span></label>
+                <input type="text" name="idioma" placeholder="Sua resposta" required>
+            </div>
+            <div class="question">
+                <label>Existe alguma senha padrão? Se sim, qual? * <span class="info-icon" data-tooltip="Senha local do aparelho.">i</span></label>
+                <input type="text" name="senha" placeholder="Sua resposta" required>
+            </div>
+        </div>
+
+         <div class="section">
+            <h2>🌐 Configurações de conexão</h2>
+            <div class="question">
+                <label>Atribuição de IP Wi-Fi * <span class="info-icon" data-tooltip="DHCP ou Fixo.">i</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="ip_method" value="DHCP" required> Automático (DHCP)</label>
+                    <label><input type="radio" name="ip_method" value="Fixo"> Manual (IP Fixo)</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Deseja chip de dados? * <span class="info-icon" data-tooltip="Habilitar rede 4G.">i</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="chip" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="chip" value="Não"> Não</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Deseja ponto de acesso wi-fi? * <span class="info-icon" data-tooltip="DVR como roteador.">i</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="wifi_ap" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="wifi_ap" value="Não"> Não</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>Prioridades de conexão * <span class="info-icon" data-tooltip="Defina a redundância.">i</span></label>
+                <table class="priority-table">
+                    <thead><tr><th></th><th>Alta</th><th>Média</th><th>Baixa</th></tr></thead>
+                    <tbody>
+                        <tr><td>Celular</td><td><input type="radio" name="prio_cel" value="Alta"></td><td><input type="radio" name="prio_cel" value="Média"></td><td><input type="radio" name="prio_cel" value="Baixa"></td></tr>
+                        <tr><td>Wi-fi</td><td><input type="radio" name="prio_wifi" value="Alta"></td><td><input type="radio" name="prio_wifi" value="Média"></td><td><input type="radio" name="prio_wifi" value="Baixa"></td></tr>
+                        <tr><td>Lan0</td><td><input type="radio" name="prio_lan" value="Alta"></td><td><input type="radio" name="prio_lan" value="Média"></td><td><input type="radio" name="prio_lan" value="Baixa"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📹 Câmeras e gravação</h2>
+            <div class="question">
+                <label>Quantidade de câmeras? * <span class="info-icon" data-tooltip="Máx 5 (4 analógicas + 1 IP).">i</span></label>
+                <input type="text" name="cameras_qtd" placeholder="Sua resposta" required>
+            </div>
+            <div class="question">
+                <label>Qualidade da imagem * <span class="info-icon" data-tooltip="Ajustes de visibilidade.">i</span></label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="qualidade" value="Brilho"> Brilho</label>
+                    <label><input type="checkbox" name="qualidade" value="Contraste"> Contraste</label>
+                    <label><input type="checkbox" name="qualidade" value="Saturação"> Saturação</label>
+                    <label><input type="checkbox" name="qualidade" value="Nitidez"> Nitidez</label>
+                    <label><input type="checkbox" name="qualidade" value="Ruído"> Eliminação de ruído</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Quantidade de cartões de memória * <span class="info-icon" data-tooltip="Máx 2 (128gb ou 256gb).">i</span></label>
+                <input type="text" name="memoria" placeholder="Sua resposta" required>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Segurança e Alertas</h2>
+            
+      <div class="question">
+        <label>Status de monitoramento do motorista <span class="info-icon" data-tooltip="Sensores internos de comportamento (DSM).">i</span></label>
+        <div class="checkbox-group">
+  <label><input type="checkbox" name="dsm" value="Condução de fadiga"> Condução de fadiga</label>
+  <label><input type="checkbox" name="dsm" value="Mãos fora do volante"> Mãos fora do volante</label>
+  <label><input type="checkbox" name="dsm" value="Cinto desafivelado"> Cinto desafivelado</label>
+  <label><input type="checkbox" name="dsm" value="Fumar"> Fumar</label>
+  <label><input type="checkbox" name="dsm" value="Usar o celular"> Usar o celular</label>
+  <label><input type="checkbox" name="dsm" value="Obstruir a câmera"> Obstruir a câmera</label>
+  <label><input type="checkbox" name="dsm" value="Distração"> Distração</label>
+</div>
+        </div>
+
+             <div class="question">
+        <label>ADAS (Sistemas Avançados de Assistência ao Condutor) <span class="info-icon" data-tooltip="Alertas de segurança baseados na via externa.">i</span></label>
+        <div class="checkbox-group">
+  <label><input type="checkbox" name="adas" value="Ponto cego"> Ponto cego</label>
+  <label><input type="checkbox" name="adas" value="Não dar passagem para pedestres"> Não dar passagem para pedestres</label>
+  <label><input type="checkbox" name="adas" value="Colisão frontal"> Colisão frontal</label>
+  <label><input type="checkbox" name="adas" value="Aviso de desvio de faixa"> Aviso de desvio de faixa</label>
+  <label><input type="checkbox" name="adas" value="Colisão de pedestres"> Colisão de pedestres</label>
+  <label><input type="checkbox" name="adas" value="Limite de velocidade"> Limite de velocidade</label>
+  <label><input type="checkbox" name="adas" value="Excesso de velocidade na faixa"> Excesso de velocidade na faixa</label>
+  <label><input type="checkbox" name="adas" value="Desvio"> Desvio</label>
+</div>
+               </div>
+
+            <div class="question">
+                <label>Formas de envio <span class="info-icon" data-tooltip="Reação do alerta.">i</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="envio" value="Sonoro"> Sinal sonoro</label>
+                    <label><input type="radio" name="envio" value="Email"> E-mail</label>
+                    <label><input type="radio" name="envio" value="Plataforma"> Notificar plataforma</label>
+                    <label><input type="radio" name="envio" value="Tela"> Ligar a tela</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn">Enviar</button>
+    </form>
+</div>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx8i6i6O5mZnti4ETswr1nRrgTNxOt93kEanICSVdPoaZjiU3qNE3z4R2aD9qSg8inD/exec';
+    const form = document.getElementById('dvrForm');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "Enviando...";
+
+        // Criamos um objeto FormData para capturar os inputs normais
+        const formData = new FormData(form);
+
+        // Tratamento especial para os Checkboxes (DSM e ADAS)
+        // Isso garante que várias opções marcadas apareçam na mesma célula
+        const dsm = Array.from(form.querySelectorAll('input[name="dsm"]:checked')).map(el => el.value);
+        const adas = Array.from(form.querySelectorAll('input[name="adas"]:checked')).map(el => el.value);
+        const qualidade = Array.from(form.querySelectorAll('input[name="qualidade"]:checked')).map(el => el.value);
+
+        formData.set('dsm', dsm.join(', '));
+        formData.set('adas', adas.join(', '));
+        formData.set('qualidade', qualidade.join(', '));
+
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => {
+                alert('Dados enviados com sucesso para a planilha!');
+                btn.disabled = false;
+                btn.innerText = "Enviar";
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Erro!', error.message);
+                alert('Erro ao enviar. Verifique a URL do script.');
+                btn.disabled = false;
+                btn.innerText = "Enviar";
+            });
+    });
+</script>
+    
+  </body>
+  
+</html>
